@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var numbers = [11,22,33,44,55,66,77];
+        var cars = ["BMW" , "YugoButCarDoesnt" , "Peugeot" , "VW" , "Audi"];
+
+        function ShowArrayLength(){
+
+            document.getElementById("paragraph1").innerHTML =" <div> Paragraph no:1 </div>" + "Length of numbers is: " + numbers.length + "<div>Length of cars is:" + cars.length + "</div>";
+        }
+        function ShowArrayIteration(){
+
+            var carsString = "Paragraph no:2 <div>";
+            for(var i=0;i<cars.length;i++)
+            {
+                carsString += " " + (i+1) + '.' + cars[i] ;
+            }
+            carsString += "</div>";
+
+
+            var sum = 0;
+            for(var j=0; j<numbers.length; j++){
+                sum+=numbers[j];
+            }
+            var numbersString = "The sum of number is: " + sum + " and the Average is: " + (sum/numbers.length);
+
+
+
+            document.getElementById("paragraph2").innerHTML = carsString + numbersString;
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Напреден Веб Дизајн Вежби</h1>
+    <p id="paragraph1"></p>
+    <p id="paragraph2"></p>
+    <button onclick="ShowArrayLength()">Show Array Lenght</button>
+    <button onclick="ShowArrayIteration()">Array Iteration</button>
+</body>
+</html>

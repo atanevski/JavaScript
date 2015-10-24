@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <h1>Напреден Веб Дизајн Вежби</h1>
+    <p>Креирајте вредност, додлете и вредност и прикажете ја:</p>
+
+    <p id="info"></p>
+    <p id="index"></p>
+
+    <button onclick="showInfo()">Click me</button>
+    <script>
+        function showInfo(){
+            var FirstName = "Aleksandar ";
+            var LastName = "Tanevski ";
+            var index = "112092";
+            var age = 23;
+            var addHtml = "<div>" + FirstName + LastName + "</div>";
+            document.getElementById("info").innerHTML = addHtml;
+            document.getElementById("index").innerHTML = index;
+        }
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function Rectangle(width,height){
+            this.width=width;
+            this.height=height;
+        }
+
+        /**
+         * @return {string}
+         */
+        Rectangle.prototype.PrintRectangle=function() {
+            return  "<div>Rectangle width is: "+ this.width+ " and rectangle height is " + this.height + "</div>";
+        };
+
+        /**
+         * @return {number}
+         */
+        Rectangle.prototype.RectanglePerimeter=function() {
+            return 2*this.width+2*this.height;
+        };
+
+        var rectangle1 = new Rectangle(1,299999);
+        var rectangle2 = new Rectangle(1000,20);
+
+
+        function compareRects(){
+            if(rectangle1.RectanglePerimeter()>rectangle2.RectanglePerimeter())
+                {
+                    return document.getElementById("paragraph2").innerHTML = "<strong>Paragraph no: 2</strong> <div>The biggest Rectangle has perimeter of " + rectangle1.RectanglePerimeter() + "</div>";
+                }
+            else
+            {
+                return document.getElementById("paragraph2").innerHTML = "<strong>Paragraph no: 2</strong> <div>The biggest Rectangle has perimeter of " + rectangle2.RectanglePerimeter() + "</div>";
+            }
+        }
+
+        function bodyStart(){
+            return  document.getElementById("paragraph1").innerHTML = "<strong>Paragraph no: 1</strong>" + rectangle1.PrintRectangle() + rectangle2.PrintRectangle();}
+
+
+
+    </script>
+</head>
+<body onload="bodyStart()">
+        <h1>Напреден Веб Дизајн Вежби</h1>
+            <p id="paragraph1"> </p>
+
+            <p id="paragraph2"> </p>
+
+        <button onclick="compareRects()">Calculate Perimeter</button>
+</body>
+</html>

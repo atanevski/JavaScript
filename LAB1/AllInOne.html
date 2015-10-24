@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+
+</head>
+<body>
+
+<h1>Напреден Веб Дизајн Вежби</h1>
+
+        <h3>Вежба 1</h3>
+            <div>
+                My first button!
+                <button name="firstButton" id="firstButton" onclick="alert('The First Button was Clicked!')">Click me!</button>
+            </div>
+    <br>
+        <h3>Вежба 1.1</h3>
+            <p>Креирајте вредност, додлете и вредност и прикажете ја:</p>
+            <p id="info"></p>
+            <p id="index"></p>
+            <button onclick="showInfo()">Click me</button>
+    <br>
+        <h3>Вежба 1.2</h3>
+            <p id="showResult"></p>
+            <p id="showHelloWorld"></p>
+            <button onclick="addFiveTo(14)">JUST DO IT</button>
+            <button onclick="hellow()">Show Hello World!!!</button>
+    <br>
+        <h3>Вежба 2</h3>
+            <p id="paragraph1"></p>
+            <p id="paragraph2"></p>
+            <button onclick="ShowArrayLength()">Show Array Lenght</button>
+            <button onclick="ShowArrayIteration()">Array Iteration</button>
+    <br>
+        <h3>Вежба 3</h3>
+            <div onload="bodyStart()"></div>
+            <p id="paragraph11"> </p>
+            <p id="paragraph22"> </p>
+            <button onclick="compareRects()">Calculate Perimeter</button>
+
+</body>
+
+<script>
+
+    function showInfo(){
+        var FirstName = "Aleksandar ";
+        var LastName = "Tanevski ";
+        var index = "112092";
+        var age = 23;
+        var addHtml = "<div>" + FirstName + LastName + "</div>";
+        document.getElementById("info").innerHTML = addHtml;
+        document.getElementById("index").innerHTML = index;
+    }
+    function addFiveTo(n){
+        document.getElementById("showResult").innerHTML =  n + 5;
+    }
+    function hellow(){
+        var a = "Hello";
+        var b = a + "World!";
+        document.getElementById("showHelloWorld").innerHTML = b;
+    }
+    var numbers = [11,22,33,44,55,66,77];
+    var cars = ["BMW" , "YugoButCarDoesnt" , "Peugeot" , "VW" , "Audi"];
+
+    function ShowArrayLength(){
+
+        document.getElementById("paragraph1").innerHTML =" <div> Paragraph no:1 </div>" + "Length of numbers is: " + numbers.length + "<div>Length of cars is:" + cars.length + "</div>";
+    }
+    function ShowArrayIteration(){
+
+        var carsString = "Paragraph no:2 <div>";
+        for(var i=0;i<cars.length;i++)
+        {
+            carsString += " " + (i+1) + '.' + cars[i] ;
+        }
+        carsString += "</div>";
+
+
+        var sum = 0;
+        for(var j=0; j<numbers.length; j++){
+            sum+=numbers[j];
+        }
+        var numbersString = "The sum of number is: " + sum + " and the Average is: " + (sum/numbers.length);
+
+
+
+        document.getElementById("paragraph2").innerHTML = carsString + numbersString;
+    }
+
+    function Rectangle(width,height){
+        this.width=width;
+        this.height=height;
+    }
+
+    /**
+     * @return {string}
+     */
+    Rectangle.prototype.PrintRectangle=function() {
+        return  "<div>Rectangle width is: "+ this.width+ " and rectangle height is " + this.height + "</div>";
+    };
+
+    /**
+     * @return {number}
+     */
+    Rectangle.prototype.RectanglePerimeter=function() {
+        return 2*this.width+2*this.height;
+    };
+
+    var rectangle1 = new Rectangle(1,299999);
+    var rectangle2 = new Rectangle(1000,20);
+
+
+    function compareRects(){
+        if(rectangle1.RectanglePerimeter()>rectangle2.RectanglePerimeter())
+        {
+            return document.getElementById("paragraph22").innerHTML = "<strong>Paragraph no: 2</strong> <div>The biggest Rectangle has perimeter of " + rectangle1.RectanglePerimeter() + "</div>";
+        }
+        else
+        {
+            return document.getElementById("paragraph22").innerHTML = "<strong>Paragraph no: 2</strong> <div>The biggest Rectangle has perimeter of " + rectangle2.RectanglePerimeter() + "</div>";
+        }
+    }
+
+    function bodyStart(){
+        return  document.getElementById("paragraph11").innerHTML = "<strong>Paragraph no: 1</strong>" + rectangle1.PrintRectangle() + rectangle2.PrintRectangle();
+    };
+    bodyStart();
+
+
+
+</script>
+</html>
