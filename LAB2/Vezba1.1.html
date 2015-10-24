@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <h1>Напреден Веб Дизајн Вежби</h1>
+
+    <h3>Задача 1.2</h3>
+
+    <p id="p1"><strong>Paragraph no:1</strong></p>
+
+    <div>Enter new email: <input type="text" id="txtEmail">
+
+    <div>
+        <input type="button" id="btnChangeEmail" value="Change Email" onclick="changeEmailToUser2()">
+        <input type="button" id="btnshowWinner" value="Show Winner" onclick="showWinnerFunction()">
+    </div>
+
+    <p id="showJohnnyNewEmail"></p>
+
+    <p id="showWinnerText"></p>
+
+
+        <script type="text/javascript">
+
+            function User(name, email) {
+                this.QuizScore = [];
+                this.CurrentScore = 0;
+                this.name = name;
+                this.email = email;
+            }
+
+            User.prototype.saveScore = function (theScoreToAdd) {
+                this.CurrentScore += theScoreToAdd;
+                this.QuizScore.push(theScoreToAdd);
+            }
+
+            User.prototype.showNameAndScores = function () {
+                s = "";
+                s = this.name + " Scores: ";
+
+                if (this.QuizScore.length != 0) {
+                    for (i = 0; i < this.QuizScore.length; i++) {
+                        if (i == this.QuizScore.length - 1) {
+                            s += this.QuizScore[i];
+                        } else {
+                            s += this.QuizScore[i] + ", ";
+                        }
+
+                    }
+                } else {
+                    s += "No scores yet";
+                }
+
+                return s;
+            }
+
+            User.prototype.changeEmail = function (newEmail) {
+                this.email = newEmail;
+            }
+
+            User.prototype.constructor = User;
+
+
+            var user1 = new User("Michael", "michael6@gmail.com");
+            var user2 = new User("Johnny", "johnny@gmail.com");
+            var user3 = new User("Elvis", "TheKing@gmail.com");
+
+            user1.saveScore(15);
+            user1.saveScore(20);
+
+            user2.saveScore(10);
+            user2.saveScore(15);
+            user2.saveScore(3);
+
+            print = user1.showNameAndScores() + "<br>" + user2.showNameAndScores() + "<br>" + user3.showNameAndScores();
+            document.getElementById("p1").innerHTML = print;
+
+            function changeEmailToUser2() {
+                user2.changeEmail(document.getElementById("txtEmail").value);
+                document.getElementById("showJohnnyNewEmail").innerHTML = "Johnny's new email address is " + user2.email;
+            }
+
+            function showWinnerFunction() {
+                var winnerIndex = -1000;
+                var winnerScore = -1000;
+                var users = [user1, user2, user3];
+                for (i = 0; i < users.length; i++) {
+                    console.log(users[i].name);
+                    if (users[i].CurrentScore > winnerScore) {
+                        winnerScore = users[i].CurrentScore;
+                        winnerIndex = i;
+                    }
+                }
+                document.getElementById("showWinnerText").innerHTML = "The winner is " + users[winnerIndex].name + " with a total score of " + users[winnerIndex].CurrentScore;
+            }
+
+        </script>
+
+</body>
+</html>

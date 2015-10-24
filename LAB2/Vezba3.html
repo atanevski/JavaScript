@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="demo">0</p>
+<input type="button" onclick="myFunction()" value="Click me!">
+
+<script type="text/javascript">
+    function add() {
+        var counter = 0;
+        return function () {
+            return counter += 2;};
+    }
+    var temp = add();
+
+    function myFunction() {
+        document.getElementById("demo").innerHTML = temp();
+    }
+
+</script>
+
+</body>
+</html>

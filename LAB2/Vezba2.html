@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"
+            type="text/javascript"></script>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    firstArray = [];
+    function flatten(text) {
+        for (var arg = 0; arg < arguments.length; arg++) {
+            if (arguments[arg].constructor === Array) {
+                for (var i = 0; i < arguments[arg].length; i++) {
+                    flatten(arguments[arg][i]);
+                }
+            } else {
+                console.log(arguments[arg]);
+                firstArray.push(arguments[arg]);
+            }
+        }
+    }
+    flatten([1, 2, 3, 4, 5], [1, [2], [3, [[4]]], [5, 6]]);
+    console.log(firstArray);
+    console.log(_.uniq(firstArray));
+
+</script>
+</body>
+</html>
