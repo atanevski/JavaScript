@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="divi">
+    <img id="imageE">
+</div>
+<button type="button" onclick="imgg()" value="Show Image">Show image</button>
+
+
+<script type="text/javascript">
+
+    var counter = 0;
+
+    function imgg() {
+        var myImage1 = new Image(240, 160);
+        var myImage2 = new Image(240, 160);
+        var myImage3 = new Image(240, 160);
+        myImage1.src = 'http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg';
+        myImage2.src = 'http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg';
+        myImage3.src = 'http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg%22';
+
+        var zapad = document.getElementById("divi");
+
+        if (counter % 3 == 2) {
+            zapad.replaceChild(myImage1, zapad.children[0]);
+            counter++;
+        } else if (counter % 3 == 0) {
+            zapad.replaceChild(myImage2, zapad.children[0]);
+            counter++;
+        } else if (counter % 3 == 1) {
+            zapad.replaceChild(myImage3, zapad.children[0]);
+            counter++;
+        }
+
+        console.log(counter);
+
+    }
+</script>
+</body>
+</html>

@@ -5,15 +5,15 @@
     <title></title>
 </head>
 <body>
-<div>
+<p>
     <input type="button" value="Add File" onclick="doIT()">
     <input type="button" value="Remove Last File" onclick="delIT()">
-</div>
+</p>
 
 
-<div id="app">
-    <input type="file" id="cFile" value="Choose File">
-</div>
+<p id="app">
+    <input type="file">
+</p>
 
 <br>
 
@@ -30,10 +30,19 @@
 
     function delIT() {
         var tanes = document.getElementById("app");
-        tanes.removeChild(tanes.children[0]);
+        tanes.removeChild(tanes.children[tanes.children.length - 1]);
     }
 </script>
 
 
 </body>
+<script type="text/css">
+
+    input {
+        display: block;
+        padding: 5px;
+        width: 100%;
+    }
+
+</script>
 </html>

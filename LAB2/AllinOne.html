@@ -8,7 +8,7 @@
 <body>
 
 <h1>Напреден Веб Дизајн Вежби</h1>
-
+<p>https://github.com/atanevski/JavaScript</p>
 <h3>Задача 1.2</h3>
 
 <div>
@@ -25,9 +25,6 @@
 
     <p id="showWinnerText"></p>
 </div>
-
-
-
 
 
 <h3>Задача 2.1</h3>
@@ -59,10 +56,6 @@ function flatten(text) {
 </div>
 
 
-
-
-
-
 <h3>Задача 2.2</h3>
 
 <div>
@@ -79,9 +72,6 @@ function flatten(text) {
 </div>
 
 
-
-
-
 <h3>Задача 3.1</h3>
 
 <div>
@@ -89,10 +79,9 @@ function flatten(text) {
     <input type="button" onclick="myFunction()" value="Click me!">
 </div>
 
+<h3>Задача 4</h3>
 
-
-
-
+Scroll down :)
 
 
 <h3>Задача 5.1</h3>
@@ -107,7 +96,69 @@ function flatten(text) {
     <input type="file" id="cFile" value="Choose File">
 </div>
 
+<h3>Задача 5.2</h3>
+
+<div id="he">
+
+    <span id="spanGoogle">https://www.google.com</span>
+
+    <div>
+        <input type="button" id="btnn" value="Replace with anchor" onclick="khaBoom()">
+    </div>
+
+</div>
+
+
+<h3>Задача 5.3</h3>
+
+
+<div id="divi">
+    <img id="imageE">
+</div>
+<button type="button" onclick="imgg()" value="Show Image">Show image</button>
+
+
 <script type="text/javascript">
+    //pettri
+    var counter = 0;
+
+    function imgg() {
+        var myImage1 = new Image(240, 160);
+        var myImage2 = new Image(240, 160);
+        var myImage3 = new Image(240, 160);
+        myImage1.src = 'http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg';
+        myImage2.src = 'http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg';
+        myImage3.src = 'http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg%22';
+
+        var zapad = document.getElementById("divi");
+
+        if (counter % 3 == 2) {
+            zapad.replaceChild(myImage1, zapad.children[0]);
+            counter++;
+        } else if (counter % 3 == 0) {
+            zapad.replaceChild(myImage2, zapad.children[0]);
+            counter++;
+        } else if (counter % 3 == 1) {
+            zapad.replaceChild(myImage3, zapad.children[0]);
+            counter++;
+        }
+
+        console.log(counter);
+
+    }
+    //petdva
+
+    function khaBoom() {
+        var span = document.getElementById("spanGoogle");
+
+        var a = document.createElement('a');
+        var uri = document.createTextNode("https://www.google.com");
+        a.appendChild(uri);
+        a.href = "https://www.google.com";
+
+        document.getElementById("he").replaceChild(a, span);
+    }
+
     //petta
     function doIT() {
         var btn = document.createElement("input");
@@ -120,7 +171,7 @@ function flatten(text) {
 
     function delIT() {
         var tanes = document.getElementById("app");
-        tanes.removeChild(tanes.childNodes[0]);
+        tanes.removeChild(tanes.children[tanes.children.length - 1]);
     }
 
     //treta

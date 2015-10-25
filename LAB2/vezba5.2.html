@@ -5,29 +5,29 @@
     <title></title>
 </head>
 <body>
-<div>
-    <input type="button" value="Add File" onclick="doIT()">
-    <input type="button" value="Remove Last File" onclick="delIT()">
+
+<div id="he">
+
+    <span id="spanGoogle">https://www.google.com</span>
+
+    <div>
+        <input type="button" id="btnn" value="Replace with anchor" onclick="khaBoom()">
+    </div>
+
 </div>
-
-
-<div id="app">
-    <input type="file" id="cFile" value="Choose File">
-</div>
-
-<br>
-
-
 <script type="text/javascript">
-    function doIT() {
 
+    function khaBoom() {
+        var span = document.getElementById("spanGoogle");
+
+        var a = document.createElement('a');
+        var uri = document.createTextNode("https://www.google.com");
+        a.appendChild(uri);
+        a.href = "https://www.google.com";
+
+        document.getElementById("he").replaceChild(a, span);
     }
 
-    function delIT() {
-
-    }
 </script>
-
-
 </body>
 </html>
